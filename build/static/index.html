@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>24.com | Interview task</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://use.fontawesome.com/f1003c147a.js"></script>
+</head>
+<body class="landing">
+<div class="content">
+    <div class="search-container">
+        <div class="logo">
+            <h1>Google</h1>
+        </div>
+        <div class="search">
+            <div id="search-cont" class="input">
+                <i id="search-btn" class="fa fa-search" aria-hidden="true"></i>
+                <input type="search" placeholder="SEARCH..." autofocus>
+                <button id="submit-btn" class="btn button"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<script>
+var input = $('#search-cont input');
+var searchBtn = $('#search-btn');
+var submitBtn = $('#submit-btn');
+var content = $('#search-cont');
+
+    function inputFadeIn() {
+        if(input.val().length > 0) {
+            submitBtn.fadeIn('slow');
+        } else {
+            submitBtn.fadeOut('slow');
+        }
+    }
+
+    $('.landing').click(function() {
+        content.removeClass('open');
+    });
+
+    $('.search').click(function(e) {
+        e.stopPropagation();
+    });
+
+    searchBtn.click(function() {
+        content.toggleClass('open');
+        submitBtn.hide();
+        inputFadeIn();
+    });
+
+    input.keyup(function() {
+       inputFadeIn();
+    });
+
+    submitBtn.click(function() {
+        var result = input.val();
+        console.log(result);
+        $.ajax({
+            "url" : "https://www.googleapis.com/customsearch/v1?key=AIzaSyCv9Rf2Byyw9TkNyku1ZiHBeUSeFErc_K4&cx=015921586228539547241:8aqkhvwhory&q="+ result,
+            "type" : "get",
+            "data" : {
+
+            }
+        }).done(function(data) {
+            console.log(data);
+
+//        var obj = JSON.parse(data);
+//
+//        console.log(obj);
+
+            // $('#result').val(data) ;
+        })
+    });
+</script>
+</body>
+</html>
