@@ -3,25 +3,42 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>24.com | Interview task</title>
     <link rel="stylesheet" href="index.css">
     <script src="https://use.fontawesome.com/f1003c147a.js"></script>
+    <title>24i.com | Interview task</title>
 </head>
 <body class="landing">
-<div class="content">
-    <div class="search-container">
-        <div class="logo">
-            <h1>Google</h1>
-        </div>
-        <div class="search">
-            <div id="search-cont" class="input">
-                <i id="search-btn" class="fa fa-search" aria-hidden="true"></i>
-                <input type="search" placeholder="SEARCH..." autofocus>
-                <button id="submit-btn" class="btn button"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+<!-- Search in header after "submit" button clicked -->
+    <div class="header-search">
+        <div class="search-container">
+            <div class="logo">
+                <h1>Google</h1>
+            </div>
+            <div class="search">
+                <div id="header-search" class="input open">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="search" placeholder="Search..." value="" autofocus>
+                    <button class="btn button"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+<!-- Landing search -->
+    <div class="content">
+        <div class="search-container">
+            <div class="logo">
+                <h1>Google</h1>
+            </div>
+            <div class="search">
+                <div id="landing-search" class="input">
+                    <i id="search-btn" class="fa fa-search" aria-hidden="true"></i>
+                    <input type="search" placeholder="Search..." value="" autofocus>
+                    <button class="btn button"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -29,18 +46,32 @@
   crossorigin="anonymous"></script>
 
 <script>
-var input = $('#search-cont input');
-var searchBtn = $('#search-btn');
-var submitBtn = $('#submit-btn');
-var content = $('#search-cont');
+var input = $('.input input');
+var headerInput = $('#header-search input');
+var landingInput = $('#landing-search input');
+var searchBtn = $('#landing-search i');
+var submitBtn = $('.input button');
+var content = $('#landing-search');
+
+
 
     function inputFadeIn() {
-        if(input.val().length > 0) {
+        if((headerInput.val().length > 0) || (landingInput.val().length > 0)){
             submitBtn.fadeIn('slow');
         } else {
             submitBtn.fadeOut('slow');
         }
     }
+
+    function exchange() {
+            $('.header-search').fadeIn('slow');
+            $('.content').fadeOut();
+        }
+
+    $(document).ready(function() {
+      submitBtn.hide();
+      $('.header-search').hide();
+    });
 
     $('.landing').click(function() {
         content.removeClass('open');
@@ -57,12 +88,20 @@ var content = $('#search-cont');
     });
 
     input.keyup(function() {
+        console.log('key');
        inputFadeIn();
     });
 
     submitBtn.click(function() {
-        var result = input.val();
-        console.log(result);
+        exchange();
+        var result = null;
+
+        if(headerInput.val().length > 0) {
+            result = headerInput.val();
+        } else if(landingInput.val().length > 0) {
+            result = landingInput.val();
+        }
+
         $.ajax({
             "url" : "https://www.googleapis.com/customsearch/v1?key=AIzaSyCv9Rf2Byyw9TkNyku1ZiHBeUSeFErc_K4&cx=015921586228539547241:8aqkhvwhory&q="+ result,
             "type" : "get",
@@ -70,13 +109,9 @@ var content = $('#search-cont');
 
             }
         }).done(function(data) {
+            console.log(data.searchInformation);
             console.log(data);
-
-//        var obj = JSON.parse(data);
-//
-//        console.log(obj);
-
-            // $('#result').val(data) ;
+            console.log(data.items);
         })
     });
 </script>
