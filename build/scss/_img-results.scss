@@ -1,1 +1,59 @@
 @import 'variables';
+
+.results {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  .images,
+  .pages {
+    width: 45%;
+  }
+  .pages {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    .page-result {
+      width: 100%;
+      .title {
+        font-size: 18px;
+        color: darken($blue-end, 10%);
+        a {
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+          &:visited {
+            color: $visited;
+          }
+        }
+      }
+      .link a {
+        font-size: small;
+        color: grey;
+      }
+      .snippet p {
+        font-size: small;
+        line-height: 0.75rem;
+        margin-top: 4px;
+      }
+    }
+  }
+  .images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .image-result {
+      height: 150px;
+      display: flex;
+      justify-content: space-around;
+      img {
+        height: 120px;
+      }
+      .size-link {
+        display: none;
+      }
+    }
+  }
+}
