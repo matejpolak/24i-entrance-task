@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a7a640c-34cd-467f-b67f-7a1365a6e55e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/scss/_sites-results.scss" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/build/scss/_img-results.scss" afterPath="$PROJECT_DIR$/build/scss/_results.scss" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/PaginationButtons.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/scss/index.scss" afterPath="$PROJECT_DIR$/build/scss/index.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/static/index.html" afterPath="$PROJECT_DIR$/build/static/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/static/js/ImageResult.js" afterPath="$PROJECT_DIR$/build/static/js/ImageResult.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/static/js/PageResult.js" afterPath="$PROJECT_DIR$/build/static/js/PageResult.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/static/js/PaginationButtons.js" afterPath="$PROJECT_DIR$/build/static/js/PaginationButtons.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/static/js/Searching.js" afterPath="$PROJECT_DIR$/build/static/js/Searching.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,21 +16,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build/static/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="77" column="17" lean-forward="false" selection-start-line="77" selection-start-column="17" selection-end-line="77" selection-end-column="17" />
+            <state relative-caret-position="437">
+              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PaginationButtons.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build/static/js/PaginationButtons.js">
+      <file leaf-file-name="HeaderSearch.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build/static/js/HeaderSearch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-156">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="23" selection-end-column="1" />
+            <state relative-caret-position="350">
+              <caret line="27" column="66" lean-forward="false" selection-start-line="27" selection-start-column="66" selection-end-line="27" selection-end-column="66" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -42,14 +38,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Searching.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build/static/js/Searching.js">
+      <file leaf-file-name="LandingSearch.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build/static/js/LandingSearch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+            <state relative-caret-position="513">
+              <caret line="41" column="28" lean-forward="true" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Searching.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build/static/js/Searching.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -76,6 +82,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>src</find>
+      <find>.landin</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -102,10 +109,12 @@
         <option value="$PROJECT_DIR$/build/static/js/PageResult.js" />
         <option value="$PROJECT_DIR$/build/static/js/ImageResult.js" />
         <option value="$PROJECT_DIR$/build/scss/_results.scss" />
-        <option value="$PROJECT_DIR$/build/static/js/PaginationButtons.js" />
         <option value="$PROJECT_DIR$/build/static/js/SearchInfo.js" />
+        <option value="$PROJECT_DIR$/build/static/js/PaginationButtons.js" />
         <option value="$PROJECT_DIR$/build/static/js/Searching.js" />
+        <option value="$PROJECT_DIR$/build/static/js/HeaderSearch.js" />
         <option value="$PROJECT_DIR$/build/static/index.html" />
+        <option value="$PROJECT_DIR$/build/static/js/LandingSearch.js" />
       </list>
     </option>
   </component>
@@ -173,8 +182,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="1015" />
-    <option name="width" value="425" />
+    <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -291,19 +299,18 @@
       <updated>1510334421602</updated>
       <workItem from="1510334422830" duration="3400000" />
       <workItem from="1510428377663" duration="17033000" />
-      <workItem from="1510547624214" duration="43755000" />
+      <workItem from="1510547624214" duration="53271000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64188000" />
+    <option name="totallyTimeSpent" value="73704000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.016997168" sideWeight="0.50497514" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35505617" sideWeight="0.4950249" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35479257" sideWeight="0.4950249" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -580,18 +587,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build/static/js/PaginationButtons.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-156">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="23" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/static/js/Searching.js">
+    <entry file="file://$PROJECT_DIR$/build/static/js/HeaderSearch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+        <state relative-caret-position="350">
+          <caret line="27" column="66" lean-forward="false" selection-start-line="27" selection-start-column="66" selection-end-line="27" selection-end-column="66" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -600,8 +605,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build/static/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="77" column="17" lean-forward="false" selection-start-line="77" selection-start-column="17" selection-end-line="77" selection-end-column="17" />
+        <state relative-caret-position="437">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/static/js/LandingSearch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="41" column="28" lean-forward="true" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/static/js/Searching.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
           <folding />
         </state>
       </provider>

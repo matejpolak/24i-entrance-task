@@ -10,18 +10,7 @@
 <body class="landing">
 <!-- Search in header after "submit" button clicked -->
     <section class="header-search">
-        <div class="search-container">
-            <div class="logo">
-                <h1>Google</h1>
-            </div>
-            <div class="search">
-                <div id="header-search" class="input open">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                    <input type="search" placeholder="Search..." value="" autofocus>
-                    <button class="btn button"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
-                </div>
-            </div>
-        </div>
+
     </section>
 
 <!-- Landing search -->
@@ -69,61 +58,43 @@
   crossorigin="anonymous"></script>
 <script src="js/PageResult.js"></script>
 <script src="js/ImageResult.js"></script>
-<script src="js/PaginationButtons.js"></script>
 <script src="js/SearchInfo.js"></script>
+<script src="js/Searching.js"></script>
+<script src="js/HeaderSearch.js"></script>
+<script src="js/LandingSearch.js"></script>
 <script>
-
 // Create objects of Searching class
+    //landing search
+        var landingInput = $('#landing-search input');
+        var landingSubmit = $('#landing-search button');
 
-var landing = new
-var input = $('.input input');
-var headerInput = $('#header-search input');
-var landingInput = $('#landing-search input');
-var searchBtn = $('#landing-search i');
+        var landing = new Submitting(landingSubmit ,landingInput);
+
+
+// Create object of LandingSearch class
+        var searchIcon = $('#landing-search i');
+        var Landing = new landingSearch(searchIcon);
+
+
+
+
+
+// Rest ---- Mess from beggining of coding
+
 var submitBtn = $('.input button');
 var content = $('#landing-search');
 
-    function inputFadeIn() {
-        if((headerInput.val().length > 0) || (landingInput.val().length > 0)){
-            submitBtn.fadeIn('slow');
-        } else {
-            submitBtn.fadeOut('slow');
-        }
-    }
 
-    function exchange() {
-            $('.header-search').fadeIn('slow');
-            $('.content').fadeOut();
-        }
 
-    $(document).ready(function() {
-      submitBtn.hide();
-      $('.header-search').hide();
-    });
 
-    $('.landing').click(function() {
-        content.removeClass('open');
-    });
 
-    $('.search').click(function(e) {
-        e.stopPropagation();
-    });
 
-    searchBtn.click(function() {
-        content.toggleClass('open');
-        submitBtn.hide();
-        inputFadeIn();
-    });
+//    searchBtn.click(function() {
+//        content.toggleClass('open');
+//        submitBtn.hide();
+//        // inputFadeIn();
+//    });
 
-    input.keyup(function() {
-        console.log('key');
-       inputFadeIn();
-    });
-
-    submitBtn.click(function() {
-        exchange();
-        var buttons = new paginationButtons();
-    });
 </script>
 </body>
 </html>
