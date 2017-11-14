@@ -38,7 +38,7 @@ printImage: function () {
             '<div class="size-link">' + this.width + 'x' + this.height + ' - ' + this.displayLink + '</div>' +
         '</div>';
 
-    $('.images').prepend(finalResult);
+    $('.images .results').append(finalResult);
 }
 }
 ;

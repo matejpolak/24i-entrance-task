@@ -15,7 +15,6 @@ function Page(obj) {
     this.snippet = obj.htmlSnippet;
     this.url = obj.link;
 
-
     this.printPage();
 };
 
@@ -27,6 +26,8 @@ Page.prototype = {
     snippet: null,
     url: null,
     image: null,
+    results: null,
+    time: null,
 
     printPage: function() {
         var finalResult =
@@ -36,6 +37,6 @@ Page.prototype = {
                 '<div class="snippet"><p>' + this.snippet + '</p></div>' +
             '</div>';
 
-        $('.pages').append(finalResult);
-    }
+        $('.pages .results').append(finalResult);
+    },
 };

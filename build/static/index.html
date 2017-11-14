@@ -42,12 +42,26 @@
 
     <section class="results">
         <div class="images">
+            <div class="info">
 
+            </div>
+            <div class="results">
+
+            </div>
         </div>
 
         <div class="pages">
+            <div class="info">
 
+            </div>
+            <div class="results">
+
+            </div>
         </div>
+    </section>
+
+    <section id="buttons">
+
     </section>
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -55,16 +69,19 @@
   crossorigin="anonymous"></script>
 <script src="js/PageResult.js"></script>
 <script src="js/ImageResult.js"></script>
+<script src="js/PaginationButtons.js"></script>
+<script src="js/SearchInfo.js"></script>
 <script>
+
+// Create objects of Searching class
+
+var landing = new
 var input = $('.input input');
 var headerInput = $('#header-search input');
 var landingInput = $('#landing-search input');
 var searchBtn = $('#landing-search i');
 var submitBtn = $('.input button');
 var content = $('#landing-search');
-var currentStartIndex = 1;
-
-
 
     function inputFadeIn() {
         if((headerInput.val().length > 0) || (landingInput.val().length > 0)){
@@ -105,42 +122,7 @@ var currentStartIndex = 1;
 
     submitBtn.click(function() {
         exchange();
-        var result = null;
-
-        if(headerInput.val().length > 0) {
-            result = headerInput.val();
-        } else if(landingInput.val().length > 0) {
-            result = landingInput.val();
-        }
-
-        $.ajax({
-            "url" : "https://www.googleapis.com/customsearch/v1?key=AIzaSyCv9Rf2Byyw9TkNyku1ZiHBeUSeFErc_K4&cx=015921586228539547241:8aqkhvwhory&q="+ result,
-            "type" : "get",
-            "data": {
-
-            }
-        }).done(function(data) {
-            $('.pages').empty();
-            console.log(data);
-              for( var i = 0; i < data.items.length; i++) {
-                  var result = data.items[i];
-                  var singlePage = new Page(result);
-                }
-        });
-
-        $.ajax({
-            "url" : "https://www.googleapis.com/customsearch/v1?key=AIzaSyCv9Rf2Byyw9TkNyku1ZiHBeUSeFErc_K4&cx=015921586228539547241:8aqkhvwhory&searchType=image&q="+ result,
-            "type" : "get",
-            "data": {
-            }
-        }).done(function(data) {
-            $('.images').empty();
-
-            for( var i = 0; i < data.items.length; i++) {
-                var result = data.items[i];
-                var singleImage = new Image(result);
-            }
-        })
+        var buttons = new paginationButtons();
     });
 </script>
 </body>
