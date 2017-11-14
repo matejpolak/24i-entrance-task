@@ -28,5 +28,6 @@ function HeaderSearch() {
     //Create object of class Submittng from newly created elements
     var headerInput = $('#header-search input');
     var headerSubmit = $('#header-search button');
-    var header = new Submitting(headerSubmit ,headerInput);
+    var header = new Submitting(headerSubmit ,headerInput, 1);
 }
+

@@ -13,10 +13,11 @@
     9) Generate PaginationButtons
  */
 
-function Submitting(button, input) {
+function Submitting(button, input, headerSearch) {
 
     this.button = button;
     this.input = input;
+    this.headerSearch = headerSearch;
 
     var self = this;
 
@@ -37,6 +38,7 @@ Submitting.prototype = {
     button: null,
     input: null,
     current_page: null,
+    headerSearch: null,
 
     // Display search button in case, that input has at least 1 character
     displayButton: function() {
@@ -49,19 +51,26 @@ Submitting.prototype = {
 
     // Exchange landing search into header search and Load the page with all results, infos, buttons, etc..
     Submit: function() {
-        this.exchangeSearches()
+        this.exchangeSearches();
         this.loadPage();
     },
 
     // Exchange search bars
     exchangeSearches: function() {
 
-        var headerSearch = new HeaderSearch();
-        $('.content').fadeOut();
+        if(!this.headerSearch) {
+            this.headerSearch = new HeaderSearch();
+            $('.content').fadeOut();
+        }
+
     },
 
     // Load page with all info
-    loadPage: function(nr = 1) {
+    loadPage: function(nr) {
+
+        if(nr === undefined) {
+            nr = 1;
+        }
         // set number of current page
         this.current_page = parseInt(nr);
 

@@ -1,5 +1,8 @@
 // load everything
 var gulp = require('gulp');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var gutil = require('gulp-util');
 
 var browserSync = require('browser-sync').create();
 var del = require('del');
@@ -47,6 +50,7 @@ gulp.task('static:clean', function(){
     return del([
         'dist/**/*', // delete all files from build
         '!dist/**/*.css', // except css and
+        '!dist/js/*.js',
         '!dist/**/*.map' // and sourcemaps
     ], { force: true });
 });
@@ -60,7 +64,15 @@ gulp.task('static:copy', ['static:clean'], function(){
         });
 });
 
-gulp.task('build', ['css:compile', 'static:copy']);
+gulp.task('scripts', function() {
+    return gulp.src('./build/js/*.js')
+        .pipe(concat('bundle.js'))
+        .pipe(uglify())
+        .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+        .pipe(gulp.dest('./dist/js/'));
+});
+
+gulp.task('build', ['css:compile', 'scripts', 'static:copy']);
 
 gulp.task('develop', ['build'], function(){
     browserSync.init({ // initalize Browsersync
@@ -76,6 +88,7 @@ gulp.task('develop', ['build'], function(){
         port: 3040
     });
     gulp.watch('build/scss/**/*', ['css:compile']); // watch for changes in scss files
+    gulp.watch('build/js/**/*', ['scripts']); // watch for changes in js files
     gulp.watch('build/static/**/*', ['static:copy']); // watch for changes in static files
 });
 
