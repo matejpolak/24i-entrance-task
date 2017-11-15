@@ -125,22 +125,30 @@ Submitting.prototype = {
 
     // Ends the loading animation when data are received
     endLoading: function() {
-        document.querySelector('.pages .results').removeChild(document.querySelector('.pages .results span'));
-        document.querySelector('.images .results').removeChild(document.querySelector('.images .results span'));
+        var pagesLoading = document.querySelector('.pages .results span');
+        var pages = document.querySelector('.pages .results');
+        var imagesLoading = document.querySelector('.images .results span');
+        var images = document.querySelector('.images .results');
+        if(pagesLoading) {
+            pages.removeChild(pages.firstChild);
+        } else if(imagesLoading) {
+            images.removeChild(images.firstChild);
+        }
     },
 
     // send AJAX call for images, pages and their search info
     sendAjaxCall: function(value, index) {
         var self = this;
-        // AJAX call for normal pages
-        var request = new XMLHttpRequest();
-        request.open("GET", "https://www.googleapis.com/customsearch/v1?key=AIzaSyCv9Rf2Byyw9TkNyku1ZiHBeUSeFErc_K4&cx=015921586228539547241:8aqkhvwhory&start=" + index + "&q="+ value, true);
 
-        request.onload = function() {
-            if (request.status >= 200 && request.status < 400) {
+        // AJAX call for normal pages
+        var pagesRequest = new XMLHttpRequest();
+        pagesRequest.open("GET", "https://www.googleapis.com/customsearch/v1?key=AIzaSyCv9Rf2Byyw9TkNyku1ZiHBeUSeFErc_K4&cx=015921586228539547241:8aqkhvwhory&start=" + index + "&q="+ value, true);
+
+        pagesRequest.onload = function() {
+            if (pagesRequest.status >= 200 && pagesRequest.status < 400) {
 
                 // JSON.Parse request string
-                var data = JSON.parse(request.responseText);
+                var data = JSON.parse(pagesRequest.responseText);
 
                 // display search info ("xy images in xy seconds founded")
                 self.displaySearchInfo('page', data);
@@ -161,17 +169,17 @@ Submitting.prototype = {
             }
         };
 
-        request.send();
+        pagesRequest.send();
 
         // AJAX call for images
-        var request = new XMLHttpRequest();
-        request.open("GET", "https://www.googleapis.com/customsearch/v1?key=AIzaSyCv9Rf2Byyw9TkNyku1ZiHBeUSeFErc_K4&cx=015921586228539547241:8aqkhvwhory&start=" + index + "&searchType=image&q="+ value, true);
+        var imagesRequest = new XMLHttpRequest();
+        imagesRequest.open("GET", "https://www.googleapis.com/customsearch/v1?key=AIzaSyCv9Rf2Byyw9TkNyku1ZiHBeUSeFErc_K4&cx=015921586228539547241:8aqkhvwhory&start=" + index + "&searchType=image&q="+ value, true);
 
-        request.onload = function() {
-            if (request.status >= 200 && request.status < 400) {
+        imagesRequest.onload = function() {
+            if (imagesRequest.status >= 200 && imagesRequest.status < 400) {
 
                 // JSON.Parse request string
-                var data = JSON.parse(request.responseText);
+                var data = JSON.parse(imagesRequest.responseText);
 
                 // display search info ("xy images in xy seconds founded")
                 self.displaySearchInfo('image', data);
@@ -186,7 +194,7 @@ Submitting.prototype = {
             }
         };
 
-        request.send();
+        imagesRequest.send();
 
     },
 
@@ -217,6 +225,7 @@ Submitting.prototype = {
 
     // generate pagination buttons when data are received
     generatePaginationButtons: function() {
+        console.log('paggination');
         var self = this;
         var buttonsContainer = document.getElementById('buttons');
         buttonsContainer.innerHTML = '';
@@ -224,7 +233,7 @@ Submitting.prototype = {
         // Generate buttons with correct values
         for(var i = -2; i <= 2; i++) {
             if(this.current_page + i <= 0) { continue; }
-
+            console.log('paggination-btn nr: '+ i);
             // create one button
             var btn = document.createElement('button');
             btn.innerHTML = this.current_page + i;
@@ -252,6 +261,13 @@ Submitting.prototype = {
         var buttonValue = (currentIndex - 1) / 10;
 
         // highlight the button
-        document.querySelector('#buttons button[data-nr=' + buttonValue + ']').classList.add('active');
+        var buttons = document.getElementById('buttons').children;
+            for(var i = 1; i < buttons.length; i++) {
+                if(buttons[i].getAttribute('data-nr') == buttonValue) {
+                    buttons[i].classList.add('active');
+                }
+            }
+
+
     }
 };
