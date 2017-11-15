@@ -149,7 +149,6 @@ Submitting.prototype = {
 
                 // JSON.Parse request string
                 var data = JSON.parse(pagesRequest.responseText);
-
                 // display search info ("xy images in xy seconds founded")
                 self.displaySearchInfo('page', data);
 
@@ -159,11 +158,15 @@ Submitting.prototype = {
                 // hide loading
                 self.endLoading();
 
-                // generate paggination buttons
-                self.generatePaginationButtons();
+                // if request response contains data.items, then generates pagination buttons
+                if(data.items) {
+                    // generate paggination buttons
+                    self.generatePaginationButtons();
 
-                // highlight current pagination button
-                self.highlightCurrentPaginationButton(data);
+                    // highlight current pagination button
+                    self.highlightCurrentPaginationButton(data);
+                }
+
             } else {
 
             }
@@ -211,16 +214,21 @@ Submitting.prototype = {
 
     // display received results when ready
     displayResults: function(type, data) {
-        if(type == 'image') {
-            for( var i = 0; i < data.items.length; i++) {
-                var result = data.items[i];
-                new Image(result);
+        if(data.items) {
+            if(type == 'image') {
+                for( var i = 0; i < data.items.length; i++) {
+                    var result = data.items[i];
+                    new Image(result);
+                }
+            } else {
+                for( var i = 0; i < data.items.length; i++) {
+                    new Page(data.items[i]);
+                }
             }
         } else {
-            for( var i = 0; i < data.items.length; i++) {
-                new Page(data.items[i]);
-            }
+            new Error(type);
         }
+
     },
 
     // generate pagination buttons when data are received
