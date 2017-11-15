@@ -4,12 +4,6 @@
     <list default="true" id="2a7a640c-34cd-467f-b67f-7a1365a6e55e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/js/HeaderSearch.js" afterPath="$PROJECT_DIR$/build/js/HeaderSearch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/js/LandingSearch.js" afterPath="$PROJECT_DIR$/build/js/LandingSearch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/js/Searching.js" afterPath="$PROJECT_DIR$/build/js/Searching.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/scss/_mainpage.scss" afterPath="$PROJECT_DIR$/build/scss/_mainpage.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/index.css" afterPath="$PROJECT_DIR$/dist/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/index.css.map" afterPath="$PROJECT_DIR$/dist/index.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/bundle.js" afterPath="$PROJECT_DIR$/dist/js/bundle.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,7 +37,7 @@
       <file leaf-file-name="LandingSearch.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build/js/LandingSearch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="195">
               <caret line="16" column="67" lean-forward="false" selection-start-line="16" selection-start-column="67" selection-end-line="16" selection-end-column="67" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -52,7 +46,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Searching.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Searching.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build/js/Searching.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="348">
@@ -64,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeaderSearch.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HeaderSearch.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build/js/HeaderSearch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+            <state relative-caret-position="75">
+              <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -166,10 +160,10 @@
         <option value="$PROJECT_DIR$/build/static/index.html" />
         <option value="$PROJECT_DIR$/build/scss/_results.scss" />
         <option value="$PROJECT_DIR$/build/js/NoResults.js" />
-        <option value="$PROJECT_DIR$/build/js/HeaderSearch.js" />
         <option value="$PROJECT_DIR$/build/js/LandingSearch.js" />
         <option value="$PROJECT_DIR$/build/scss/_mainpage.scss" />
         <option value="$PROJECT_DIR$/build/js/Searching.js" />
+        <option value="$PROJECT_DIR$/build/js/HeaderSearch.js" />
       </list>
     </option>
   </component>
@@ -349,12 +343,12 @@
       <workItem from="1510334422830" duration="3400000" />
       <workItem from="1510428377663" duration="17033000" />
       <workItem from="1510547624214" duration="76682000" />
-      <workItem from="1510734285611" duration="11930000" />
+      <workItem from="1510734285611" duration="12372000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109045000" />
+    <option name="totallyTimeSpent" value="109487000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -463,9 +457,9 @@
         <state relative-caret-position="135">
           <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
           <folding>
-            <marker date="1510763746000" expanded="true" signature="1976:1988" ph="..." />
-            <marker date="1510763746000" expanded="true" signature="1486:1543" ph="//..." />
-            <marker date="1510763746000" expanded="true" signature="1976:1978" ph="//..." />
+            <marker date="1510768531000" expanded="true" signature="1976:1988" ph="..." />
+            <marker date="1510768531000" expanded="true" signature="1486:1543" ph="//..." />
+            <marker date="1510768531000" expanded="true" signature="1976:1978" ph="//..." />
           </folding>
         </state>
       </provider>
@@ -647,9 +641,9 @@
         <state relative-caret-position="135">
           <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
           <folding>
-            <marker date="1510763746000" expanded="true" signature="1976:1988" ph="..." />
-            <marker date="1510763746000" expanded="true" signature="1486:1543" ph="//..." />
-            <marker date="1510763746000" expanded="true" signature="1976:1978" ph="//..." />
+            <marker date="1510768531000" expanded="true" signature="1976:1988" ph="..." />
+            <marker date="1510768531000" expanded="true" signature="1486:1543" ph="//..." />
+            <marker date="1510768531000" expanded="true" signature="1976:1978" ph="//..." />
           </folding>
         </state>
       </provider>
@@ -704,14 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/js/HeaderSearch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/scss/_mainpage.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
@@ -728,16 +714,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/js/LandingSearch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" column="67" lean-forward="false" selection-start-line="16" selection-start-column="67" selection-end-line="16" selection-end-column="67" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/js/Searching.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
@@ -745,6 +721,24 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/js/LandingSearch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="16" column="67" lean-forward="false" selection-start-line="16" selection-start-column="67" selection-end-line="16" selection-end-column="67" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/js/HeaderSearch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
