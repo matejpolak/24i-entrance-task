@@ -29,7 +29,8 @@ Error.prototype = {
         images.className = 'image-error';
         images.innerHTML =
             '<div class="error-message"><h3>Sorry, we didn\'t found any valid images for your searched term</h3>' +
-                '<ul>Suggestions' +
+            '<h5>Suggestions</h5>'+
+                '<ul>' +
                     '<li>Make sure all words are written correctly.</li>' +
                     '<li>Try other keywords.</li>' +
                     '<li>Try more general keywords..</li>' +
@@ -45,11 +46,12 @@ Error.prototype = {
         pages.className = 'image-error';
         pages.innerHTML =
             '<div class="error-message"><h3>Sorry, we didn\'t found any valid pages for your searched term</h3>' +
-            '<ul>Suggestions' +
-            '<li>Make sure all words are written correctly.</li>' +
-            '<li>Try other keywords.</li>' +
-            '<li>Try more general keywords..</li>' +
-            '</ul>' +
+            '<h5>Suggestions</h5>'+
+                '<ul>' +
+                    '<li>Make sure all words are written correctly.</li>' +
+                    '<li>Try other keywords.</li>' +
+                    '<li>Try more general keywords..</li>' +
+                '</ul>' +
             '</div>';
 
         this.pages.appendChild(pages);
