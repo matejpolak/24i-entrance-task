@@ -32,13 +32,15 @@ Image.prototype = {
     thumbnail: null,
 
 printImage: function () {
-    var finalResult =
-        '<div class="image-result">' +
-            '<div class="thumbnail"><img src="' + this.thumbnail + '" alt="' + this.title + '"></div>' +
-            '<div class="size-link">' + this.width + 'x' + this.height + ' - ' + this.displayLink + '</div>' +
-        '</div>';
 
-    $('.images .results').append(finalResult);
+    var container = document.querySelector('.images .results');
+
+    var div = document.createElement('div');
+    div.className = 'image-result';
+    div.innerHTML = '<div class="thumbnail"><img src="' + this.thumbnail + '" alt="' + this.title + '"></div>' +
+        '<div class="size-link">' + this.width + 'x' + this.height + ' - ' + this.displayLink + '</div>';
+
+    container.appendChild(div);
 }
 }
 ;

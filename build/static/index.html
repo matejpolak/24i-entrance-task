@@ -7,7 +7,7 @@
     <script src="https://use.fontawesome.com/f1003c147a.js"></script>
     <title>24i.com | Interview task</title>
 </head>
-<body class="landing">
+<body id="landing">
 <!-- Search in header after "submit" button clicked -->
     <section class="header-search">
 
@@ -52,24 +52,21 @@
     <section id="buttons">
 
     </section>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+
 <script src="js/bundle.js"></script>
 
 <script>
 // Create objects of Searching class
     //landing search
-        var landingInput = $('#landing-search input');
-        var landingSubmit = $('#landing-search button');
+        var landingInput = document.querySelector('#landing-search input');
+        var landingSubmit = document.querySelector('#landing-search button');
 
-        var landing = new Submitting(landingSubmit ,landingInput, 0);
+        new Submitting(landingSubmit ,landingInput, 0);
 
 
 // Create object of LandingSearch class
-        var searchIcon = $('#landing-search i');
-        var Landing = new landingSearch(searchIcon);
+        var searchIcon = document.querySelector('#landing-search i');
+        new landingSearch(searchIcon);
 
 
 
@@ -77,8 +74,8 @@
 
 // Rest ---- Mess from beggining of coding
 
-var submitBtn = $('.input button');
-var content = $('#landing-search');
+var submitBtn = document.querySelector('.input button');
+var content = document.getElementById('#landing-search');
 
 
 

@@ -22,12 +22,12 @@ function Submitting(button, input, headerSearch) {
     var self = this;
 
     // calling display function when input value is beeing changed
-    this.input.keyup(function() {
+    this.input.addEventListener('keyup', function() {
         self.displayButton();
     });
 
     // submitting = "Search"
-    this.button.click(function() {
+    this.button.addEventListener('click', function() {
         self.Submit();
     })
 
@@ -42,10 +42,15 @@ Submitting.prototype = {
 
     // Display search button in case, that input has at least 1 character
     displayButton: function() {
-        if(this.input.val().length >= 1) {
-            this.button.fadeIn('slow');
+
+        if(this.input.value.length >= 1) {
+            this.button.classList.remove('fade-out');
+            this.button.classList.add('fade-in');
+            this.button.style.display = '';
         } else {
-            this.button.fadeOut('slow');
+            this.button.classList.remove('fade-in');
+            this.button.classList.add('fade-out');
+            this.button.style.display = 'none';
         }
     },
 
@@ -60,7 +65,9 @@ Submitting.prototype = {
 
         if(!this.headerSearch) {
             this.headerSearch = new HeaderSearch();
-            $('.content').fadeOut();
+            document.getElementsByClassName('content')[0].classList.remove('fade-in');
+            document.getElementsByClassName('content')[0].classList.add('fade-out');
+            document.getElementsByClassName('content')[0].style.display = 'none';
         }
 
     },
@@ -84,75 +91,102 @@ Submitting.prototype = {
         this.displayLoading();
 
         // send AJAX call for images, pages and their search info
-        this.sendAjaxCall(this.input.val(), index);
+        this.sendAjaxCall(this.input.value, index);
 
 
     },
 
     // hide all results from previous requests
     emptyResults: function() {
-        $('.images .results').empty();
-        $('.images .info').empty();
-        $('.pages .results').empty();
-        $('.pages .info').empty();
-        $('#buttons').empty();
+        document.querySelector('.images .results').innerHTML = '';
+        document.querySelector('.images .info').innerHTML = '';
+        document.querySelector('.pages .results').innerHTML = '';
+        document.querySelector('.pages .info').innerHTML = '';
+        document.getElementById('buttons').innerHTML = '';
     },
 
     // display loading animation until data are received
     displayLoading: function() {
-        var loading = '<i class="loading fa fa-spinner fa-pulse fa-3x fa-fw"></i>';
-        $('.images .results').append(loading);
-        $('.pages .results').append(loading);
+
+        var imagesContainer = document.querySelector('.images .results');
+        var pagesContainer = document.querySelector('.pages .results');
+
+        var loading = document.createElement('span');
+        loading.className = 'loading';
+        loading.innerHTML = '<i class="loading fa fa-spinner fa-pulse fa-3x fa-fw"></i>';
+
+        var loading2 = document.createElement('span');
+        loading2.className = 'loading';
+        loading2.innerHTML = '<i class="loading fa fa-spinner fa-pulse fa-3x fa-fw"></i>';
+
+        imagesContainer.appendChild(loading);
+        pagesContainer.appendChild(loading2);
     },
 
     // Ends the loading animation when data are received
     endLoading: function() {
-        $('.pages .results .loading').detach();
-        $('.images .results .loading').detach();
+        document.querySelector('.pages .results').removeChild(document.querySelector('.pages .results span'));
+        document.querySelector('.images .results').removeChild(document.querySelector('.images .results span'));
     },
 
     // send AJAX call for images, pages and their search info
     sendAjaxCall: function(value, index) {
         var self = this;
         // AJAX call for normal pages
-        $.ajax({
-            "url" : "https://www.googleapis.com/customsearch/v1?key=AIzaSyCv9Rf2Byyw9TkNyku1ZiHBeUSeFErc_K4&cx=015921586228539547241:8aqkhvwhory&start=" + index + "&q="+ value,
-            "type" : "get",
-            "data": {
+        var request = new XMLHttpRequest();
+        request.open("GET", "https://www.googleapis.com/customsearch/v1?key=AIzaSyCv9Rf2Byyw9TkNyku1ZiHBeUSeFErc_K4&cx=015921586228539547241:8aqkhvwhory&start=" + index + "&q="+ value, true);
+
+        request.onload = function() {
+            if (request.status >= 200 && request.status < 400) {
+
+                // JSON.Parse request string
+                var data = JSON.parse(request.responseText);
+
+                // display search info ("xy images in xy seconds founded")
+                self.displaySearchInfo('page', data);
+
+                // send data into the function which is going to generate results
+                self.displayResults('page', data);
+
+                // hide loading
+                self.endLoading();
+
+                // generate paggination buttons
+                self.generatePaginationButtons();
+
+                // highlight current pagination button
+                self.highlightCurrentPaginationButton(data);
+            } else {
+
             }
-        }).done(function(data) {
-            // display search info ("xy images in xy seconds founded")
-            self.displaySearchInfo('page', data);
+        };
 
-            // send data into the function which is going to generate results
-            self.displayResults('page', data);
-
-            // hide loading
-            self.endLoading();
-
-            // generate paggination buttons
-            self.generatePaginationButtons();
-
-            // highlight current pagination button
-            self.highlightCurrentPaginationButton(data);
-        });
+        request.send();
 
         // AJAX call for images
-        $.ajax({
-            "url" : "https://www.googleapis.com/customsearch/v1?key=AIzaSyCv9Rf2Byyw9TkNyku1ZiHBeUSeFErc_K4&cx=015921586228539547241:8aqkhvwhory&start=" + index + "&searchType=image&q="+ value,
-            "type" : "get",
-            "data": {
+        var request = new XMLHttpRequest();
+        request.open("GET", "https://www.googleapis.com/customsearch/v1?key=AIzaSyCv9Rf2Byyw9TkNyku1ZiHBeUSeFErc_K4&cx=015921586228539547241:8aqkhvwhory&start=" + index + "&searchType=image&q="+ value, true);
+
+        request.onload = function() {
+            if (request.status >= 200 && request.status < 400) {
+
+                // JSON.Parse request string
+                var data = JSON.parse(request.responseText);
+
+                // display search info ("xy images in xy seconds founded")
+                self.displaySearchInfo('image', data);
+
+                // send data into the function which is going to generate results
+                self.displayResults('image', data);
+
+                // hide loading
+                self.endLoading();
+            } else {
+
             }
-        }).done(function(data) {
-            // display search info ("xy images in xy seconds founded")
-            self.displaySearchInfo('image', data);
+        };
 
-            // send data into the function which is going to generate results
-            self.displayResults('image', data);
-
-            // hide loading
-            self.endLoading();
-        });
+        request.send();
 
     },
 
@@ -172,11 +206,11 @@ Submitting.prototype = {
         if(type == 'image') {
             for( var i = 0; i < data.items.length; i++) {
                 var result = data.items[i];
-                var singleImage = new Image(result);
+                new Image(result);
             }
         } else {
             for( var i = 0; i < data.items.length; i++) {
-                var singlePage = new Page(data.items[i]);
+                new Page(data.items[i]);
             }
         }
     },
@@ -184,18 +218,16 @@ Submitting.prototype = {
     // generate pagination buttons when data are received
     generatePaginationButtons: function() {
         var self = this;
-        $('#buttons').empty();
+        var buttonsContainer = document.getElementById('buttons');
+        buttonsContainer.innerHTML = '';
 
-        // Gererate buttons with correct values
+        // Generate buttons with correct values
         for(var i = -2; i <= 2; i++) {
             if(this.current_page + i <= 0) { continue; }
 
             // create one button
             var btn = document.createElement('button');
             btn.innerHTML = this.current_page + i;
-
-            // append to #buttons
-            $('#buttons').append($(btn));
             btn.setAttribute('data-nr', this.current_page + i);
 
             // add event listener to load the right page
@@ -206,6 +238,9 @@ Submitting.prototype = {
                 self.loadPage(ev.target.getAttribute('data-nr'));
 
             }).bind(this));
+
+            // append to #buttons
+            buttonsContainer.appendChild(btn);
         }
     },
 
@@ -217,6 +252,6 @@ Submitting.prototype = {
         var buttonValue = (currentIndex - 1) / 10;
 
         // highlight the button
-        $('#buttons button[data-nr=' + buttonValue + ']').addClass('active');
+        document.querySelector('#buttons button[data-nr=' + buttonValue + ']').classList.add('active');
     }
 };

@@ -30,13 +30,15 @@ Page.prototype = {
     time: null,
 
     printPage: function() {
-        var finalResult =
-            '<div class="page-result">' +
-                '<div class="title"><a href="' + this.url + '">' + this.title + '</a></div>' +
-                '<div class="link"><a href="' + this.url + '">' + this.url + '</a></div>' +
-                '<div class="snippet"><p>' + this.snippet + '</p></div>' +
-            '</div>';
 
-        $('.pages .results').append(finalResult);
-    },
+        var container = document.querySelector('.pages .results');
+
+        var div = document.createElement('div');
+        div.className = 'page-result';
+        div.innerHTML = '<div class="title"><a href="' + this.url + '">' + this.title + '</a></div>' +
+            '<div class="link"><a href="' + this.url + '">' + this.url + '</a></div>' +
+            '<div class="snippet"><p>' + this.snippet + '</p></div>';
+
+        container.appendChild(div);
+    }
 };

@@ -8,20 +8,24 @@
 
 function landingSearch(button) {
     this.icon = button;
-    this.env = $('.landing');
-    this.container = $('.search');
+    this.env = document.getElementsByTagName('body')[0];
+    this.container = document.getElementById('landing-search');
 
     var self = this;
 
-    this.icon.click(function() {
+    this.icon.addEventListener('click', function() {
         self.PrepareInput();
     });
 
-    this.env.click(function() {
+
+    this.env.addEventListener('click', function() {
+        console.log('env-click');
         self.CloseInput();
     });
 
-    this.container.click(function(e) {
+
+    this.container.addEventListener('click', function(e) {
+        console.log('cont-clicked');
         self.PreventClosing(e);
     })
 }
@@ -30,12 +34,12 @@ landingSearch.prototype = {
     icon: null,
 
     PrepareInput: function() {
-        $('#landing-search').toggleClass('open');
-        $('#landing-search button').hide();
+        document.getElementById('landing-search').classList.add('open');
+        document.querySelector('#landing-search button').style.display = 'none';
     },
 
     CloseInput: function() {
-        $('#landing-search').removeClass('open');
+        document.getElementById('landing-search').classList.remove('open');
     },
 
     PreventClosing: function(e) {

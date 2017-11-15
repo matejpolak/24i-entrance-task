@@ -8,20 +8,24 @@ function SearchResult(obj) {
 SearchResult.prototype = {
 
     printPagesInfo: function () {
-        var info =
-            '<div class="page-result-info">' +
-            '   <div class="info"><span>Total pages found: ' + this.results + ' (' + this.time + ' s)</span></div>' +
-            '</div>';
 
-        $('.pages .info').append(info);
+        var container = document.querySelector('.pages .info');
+
+        var info = document.createElement('div');
+        info.className = 'page-result-info';
+        info.innerHTML = '<div class="info"><span>Total pages found: ' + this.results + ' (' + this.time + ' s)</span></div>';
+
+        container.appendChild(info);
     },
 
     printImagesInfo: function () {
-        var info =
-            '<div class="page-result-info">' +
-            '   <div class="info"><span>Total images found:  ' + this.results + ' (' + this.time + ' s)</span></div>' +
-            '</div>';
 
-        $('.images .info').append(info);
+        var container = document.querySelector('.images .info');
+
+        var info = document.createElement('div');
+        info.className = 'page-result-info';
+        info.innerHTML = '<div class="info"><span>Total images found:  ' + this.results + ' (' + this.time + ' s)</span></div>';
+
+        container.appendChild(info);
     }
 };

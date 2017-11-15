@@ -7,10 +7,10 @@
     3) Fade landing search Out
  */
 function HeaderSearch() {
+    var headerParent = document.getElementsByClassName("header-search")[0];
 
-    $('.header-search').append('' +
-        '            <div class="search-container">\n' +
-        '            <div class="logo">\n' +
+    var headerSearch = document.createElement("div");
+    headerSearch.innerHTML = '<div class="logo">\n' +
         '                <h1>Google</h1>\n' +
         '            </div>\n' +
         '            <div class="search">\n' +
@@ -19,15 +19,24 @@ function HeaderSearch() {
         '                    <input type="search" placeholder="Search..." value="" autofocus>\n' +
         '                    <button class="btn button"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>\n' +
         '                </div>\n' +
-        '            </div>\n' +
-        '        </div>');
-    $('.header-search').hide();
-    $('.header-search').fadeIn('slow');
-    $('.content').fadeOut();
+        '            </div>';
+    headerSearch.className = 'search-container';
 
-    //Create object of class Submittng from newly created elements
-    var headerInput = $('#header-search input');
-    var headerSubmit = $('#header-search button');
-    var header = new Submitting(headerSubmit ,headerInput, 1);
+    headerParent.appendChild(headerSearch);
+    headerParent.classList.add('fade-in');
+    var content = document.getElementsByClassName('content')[0];
+    content.classList.add('fade-out');
+
+    //Create object of class Submitting from newly created elements
+
+    // var headerInput = $('#header-search input');
+    // var headerSubmit = $('#header-search button');
+    // new Submitting(headerSubmit, headerInput, 1);
+
+    var headerInput = document.querySelector('#header-search input');
+    var headerSubmit = document.querySelector('#header-search button');
+    new Submitting(headerSubmit, headerInput, 1);
 }
+
+
 
