@@ -26,10 +26,16 @@ function Submitting(button, input, headerSearch) {
         self.displayButton();
     });
 
-    // submitting = "Search"
+
+    // submitting = "Search" if value has some value without spaces
+
     this.button.addEventListener('click', function() {
+        if(self.input.value.replace(/\s+/g, '') !== '') {
         self.Submit();
+        }
     })
+
+
 
 }
 

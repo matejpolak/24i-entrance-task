@@ -14,6 +14,7 @@ function landingSearch(button) {
     var self = this;
 
     this.icon.addEventListener('click', function() {
+        document.querySelector('#landing-search input').value = '';
         self.PrepareInput();
     });
 

@@ -10,9 +10,12 @@ function HeaderSearch() {
     var headerParent = document.getElementsByClassName("header-search")[0];
 
     var headerSearch = document.createElement("div");
-    headerSearch.innerHTML = '<div class="logo">\n' +
+    headerSearch.innerHTML =
+                '<a href="#">'+
+                    '<div class="logo">\n' +
         '                <h1>Google</h1>\n' +
         '            </div>\n' +
+                '</a>' +
         '            <div class="search">\n' +
         '                <div id="header-search" class="input open">\n' +
         '                    <i class="fa fa-search" aria-hidden="true"></i>\n' +
