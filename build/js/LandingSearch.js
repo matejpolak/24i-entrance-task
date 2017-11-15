@@ -19,13 +19,11 @@ function landingSearch(button) {
 
 
     this.env.addEventListener('click', function() {
-        console.log('env-click');
         self.CloseInput();
     });
 
 
     this.container.addEventListener('click', function(e) {
-        console.log('cont-clicked');
         self.PreventClosing(e);
     })
 }

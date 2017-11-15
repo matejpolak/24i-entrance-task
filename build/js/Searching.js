@@ -225,7 +225,7 @@ Submitting.prototype = {
 
     // generate pagination buttons when data are received
     generatePaginationButtons: function() {
-        console.log('paggination');
+
         var self = this;
         var buttonsContainer = document.getElementById('buttons');
         buttonsContainer.innerHTML = '';
@@ -233,7 +233,7 @@ Submitting.prototype = {
         // Generate buttons with correct values
         for(var i = -2; i <= 2; i++) {
             if(this.current_page + i <= 0) { continue; }
-            console.log('paggination-btn nr: '+ i);
+
             // create one button
             var btn = document.createElement('button');
             btn.innerHTML = this.current_page + i;

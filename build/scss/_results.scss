@@ -5,6 +5,9 @@
   margin: 20px auto;
   display: flex;
   flex-direction: row;
+  @media screen and (max-width: $results-800) {
+    flex-direction: column;
+  }
   justify-content: space-between;
   .images,
   .pages {
@@ -12,6 +15,10 @@
     flex-direction: column;
     padding: 10px;
     width: 45%;
+    @media screen and (max-width: $results-800) {
+      width: 90%;
+      margin: 0 auto;
+    }
     .results {
       display: flex;
       width: 100%;
@@ -20,8 +27,19 @@
       text-align: center;
       font-size: small;
     }
-    i {
-      align-self: center;
+    span {
+      display: flex;
+      justify-content: center;
+      i {
+        color: $blue-start;
+      }
+    }
+  }
+  .pages {
+    @media screen and (max-width: $results-800) {
+      span {
+        display: none;
+      }
     }
   }
   .pages .results {
@@ -90,6 +108,10 @@
     border-width: 0;
     border-radius: 3px;
     margin: 20px 5px;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
     &:hover,
     &:active {
       background: $blue-end;
